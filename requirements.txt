@@ -1,7 +1,26 @@
-pandas==2.2.1
-numpy==1.26.4
-matplotlib==3.8.4
-seaborn==0.13.2
-scikit-learn==1.5.0
-jupyter==1.0.0
-dvc==3.48.2
+# Create requirements.txt
+echo "# Insurance Analytics Project Dependencies" > requirements.txt
+echo "" >> requirements.txt
+echo "# Core data science" >> requirements.txt
+echo "pandas>=1.5.0" >> requirements.txt
+echo "numpy>=1.24.0" >> requirements.txt
+echo "matplotlib>=3.7.0" >> requirements.txt
+echo "seaborn>=0.12.0" >> requirements.txt
+echo "scipy>=1.10.0" >> requirements.txt
+echo "scikit-learn>=1.2.0" >> requirements.txt
+echo "" >> requirements.txt
+echo "# Jupyter/Notebook" >> requirements.txt
+echo "jupyter>=1.0.0" >> requirements.txt
+echo "ipykernel>=6.0.0" >> requirements.txt
+echo "nbformat>=5.0.0" >> requirements.txt
+echo "" >> requirements.txt
+echo "# Testing and quality" >> requirements.txt
+echo "pytest>=7.0.0" >> requirements.txt
+echo "pytest-nbval>=0.10.0" >> requirements.txt
+echo "black>=23.0.0" >> requirements.txt
+echo "flake8>=6.0.0" >> requirements.txt
+echo "mypy>=1.0.0" >> requirements.txt
+echo "" >> requirements.txt
+echo "# Data version control" >> requirements.txt
+echo "dvc>=3.0.0" >> requirements.txt
+echo "pyarrow>=12.0.0" >> requirements.txt
