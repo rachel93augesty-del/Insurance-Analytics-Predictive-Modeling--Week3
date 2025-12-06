@@ -19,7 +19,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -67,7 +67,7 @@ jobs:
         
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-results-${{ matrix.python-version }}
         path: |
@@ -80,7 +80,7 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -103,7 +103,7 @@ jobs:
         echo "- Critical issues identified" >> docs/index.md
         
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
