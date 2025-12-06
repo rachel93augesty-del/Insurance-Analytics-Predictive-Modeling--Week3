@@ -1,0 +1,82 @@
+{
+  "preprocessing_date": "2025-12-06 13:46:37",
+  "original_shape": [
+    1000098,
+    52
+  ],
+  "processed_shape": [
+    1000098,
+    62
+  ],
+  "columns_standardized": [
+    "mmcode",
+    "make",
+    "cubiccapacity",
+    "kilowatts",
+    "bodytype"
+  ],
+  "columns_dropped": [
+    "ExcessSelected",
+    "CrossBorder"
+  ],
+  "new_features_created": [
+    "Loss_Ratio",
+    "Has_Claim",
+    "Vehicle_Age",
+    "Vehicle_Value_Category",
+    "Security_Score",
+    "Premium_Per_1000",
+    "Transaction_Year",
+    "Transaction_Month",
+    "Transaction_Quarter",
+    "Is_Year_End",
+    "Fleet_Category"
+  ],
+  "outlier_handling": {
+    "TotalPremium": {
+      "outliers": 138832,
+      "pct": 13.881839579721186,
+      "lower": -65.789473684209,
+      "upper": 87.719298245612
+    },
+    "TotalClaims": {
+      "outliers": 2793,
+      "pct": 0.27927263128213436,
+      "lower": 0.0,
+      "upper": 0.0
+    },
+    "CustomValueEstimate": {
+      "outliers": 217880,
+      "pct": 21.78586498523145,
+      "lower": 220000.0,
+      "upper": 220000.0
+    },
+    "SumInsured": {
+      "outliers": 104166,
+      "pct": 10.415579273231224,
+      "lower": -730000.0,
+      "upper": 985000.0
+    },
+    "Premium_Per_1000": {
+      "outliers": 107945,
+      "pct": 10.793442242660218,
+      "lower": -13.3717,
+      "upper": 18.9956
+    }
+  },
+  "validation_issues": {
+    "Claims > 120% SumInsured": 840,
+    "Negative Premium": 288,
+    "Unreasonable Vehicle Age": 0,
+    "Extreme Loss Ratio (<0 or >500%)": 2547
+  },
+  "quality_metrics": {
+    "Total Records": 1000098,
+    "Total Columns": 62,
+    "Missing Values": 3080200,
+    "Missing Percentage": "4.9676%",
+    "Duplicate Rows": 0,
+    "Duplicate Percentage": "0.00%",
+    "Memory Usage": "1969.7 MB"
+  }
+}

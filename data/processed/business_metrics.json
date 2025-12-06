@@ -1,0 +1,72 @@
+{
+  "total_premium": 61911562.69643225,
+  "total_claims": 64867546.17070176,
+  "overall_loss_ratio": 1.0477452570332206,
+  "policies_with_claims": 2788,
+  "claim_frequency": 0.002787726802773328,
+  "avg_claim_amount": 23273.387063228372,
+  "province_stats": {
+    "policy_count": {
+      "Eastern Cape": 30336,
+      "Free State": 8099,
+      "Gauteng": 393865,
+      "KwaZulu-Natal": 169781,
+      "Limpopo": 24836,
+      "Mpumalanga": 52718,
+      "North West": 143287,
+      "Northern Cape": 6380,
+      "Western Cape": 170796
+    },
+    "TotalPremium": {
+      "Eastern Cape": 2140103.833434708,
+      "Free State": 521363.24499121227,
+      "Gauteng": 24053774.58269012,
+      "KwaZulu-Natal": 13209079.812202932,
+      "Limpopo": 1537324.4994020935,
+      "Mpumalanga": 2836291.9426531857,
+      "North West": 7490508.17851641,
+      "Northern Cape": 316558.07367388747,
+      "Western Cape": 9806558.528867707
+    },
+    "TotalClaims": {
+      "Eastern Cape": 1356426.663859649,
+      "Free State": 354922.2719298242,
+      "Gauteng": 29394148.476842105,
+      "KwaZulu-Natal": 14301382.449298246,
+      "Limpopo": 1016476.7105263156,
+      "Mpumalanga": 2044675.3578947366,
+      "North West": 5920249.995087719,
+      "Northern Cape": 89490.50877192979,
+      "Western Cape": 10389773.73649123
+    },
+    "loss_ratio": {
+      "Eastern Cape": 0.6338134826302726,
+      "Free State": 0.6807581380920064,
+      "Gauteng": 1.2220181234256304,
+      "KwaZulu-Natal": 1.0826933179770943,
+      "Limpopo": 0.6611985374081077,
+      "Mpumalanga": 0.720897354445841,
+      "North West": 0.7903669355929198,
+      "Northern Cape": 0.28269855111678915,
+      "Western Cape": 1.059471955009161
+    },
+    "claim_frequency": {
+      "Eastern Cape": 0.0016482067510548524,
+      "Free State": 0.0013581923694283246,
+      "Gauteng": 0.0033564800121869166,
+      "KwaZulu-Natal": 0.002844841295551328,
+      "Limpopo": 0.002697696891608955,
+      "Mpumalanga": 0.0024280132023217875,
+      "North West": 0.002435671065763119,
+      "Northern Cape": 0.0012539184952978057,
+      "Western Cape": 0.002166327080259491
+    }
+  },
+  "top_makes": {
+    "TOYOTA": 814446,
+    "MERCEDES-BENZ": 45071,
+    "CMC": 21624,
+    "VOLKSWAGEN": 20929,
+    "C.A.M": 16171
+  }
+}

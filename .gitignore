@@ -1,5 +1,16 @@
-# Create a comprehensive .gitignore
-cat > .gitignore << 'EOF'
+# Large data files - DO NOT COMMIT
+data/raw/            # Raw data files (too large)
+data/processed/*.parquet  # Processed parquet files
+data/processed/*_full.csv # Full CSV files
+*.pkl               # Pickle files
+*.pickle            # Pickle files
+
+# Only track these small files in processed
+!data/processed/*.json
+!data/processed/*sample*.csv
+!data/processed/data_dictionary.csv
+!data/processed/column_verification_plot.png
+
 # Python
 __pycache__/
 *.py[cod]
@@ -18,21 +29,12 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-
-# Virtual Environments
-venv/
-env/
-ENV/
-.env/
-.venv/
 
 # Jupyter
-.ipynb_checkpoints
+.ipynb_checkpoints/
 *.ipynb_checkpoints
 
 # IDE
@@ -40,54 +42,24 @@ ENV/
 .idea/
 *.swp
 *.swo
-*~
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# ========== DATA FILES - DO NOT COMMIT ==========
-# Raw data files
-data/raw/
-!data/raw/.gitkeep  # Keep directory structure
-
-# Large processed files (can be regenerated)
-data/processed/*.parquet
-data/processed/*.csv
-data/processed/*.feather
-data/processed/*.h5
-
-# Specific large files
-*.txt
-*.csv
-*.xlsx
-*.xls
-*.parquet
-*.feather
-*.hdf5
-*.h5
-*.pkl
-*.pickle
-
-# DVC
-.dvc/
-.dvcignore
+desktop.ini
 
 # Logs
-logs/
 *.log
 
-# Temp
-temp/
-tmp/
-
-# Project specific
-notebooks/__pycache__/
-src/__pycache__/
-
-# CI/CD artifacts
-.coverage
-htmlcov/
-.pytest_cache/
-.mypy_cache/
-EOF
+# Temporary
+*.tmp
+*.temp
