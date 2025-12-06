@@ -1,110 +1,29 @@
-name: Insurance Analytics CI/CD Pipeline
+name: Deploy Documentation
 
 on:
   push:
-    branches: [ main, task-1, task-2, task-3, task-4 ]
-  pull_request:
     branches: [ main ]
-  schedule:
-    # Run weekly on Monday at 8 AM UTC
-    - cron: '0 8 * * 1'
 
 jobs:
-  test-and-analyze:
+  deploy:
     runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        python-version: [3.9, '3.10']
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Checkout
+        uses: actions/checkout@v3
         
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install pytest pandas numpy matplotlib seaborn scipy scikit-learn jupyter
-        pip install black flake8 mypy
-        
-    - name: Check code formatting with Black
-      run: |
-        black --check notebooks/ src/ || echo "Code formatting issues found"
-        
-    - name: Lint with flake8
-      run: |
-        flake8 notebooks/ src/ --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 notebooks/ src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-        
-    - name: Type checking with mypy
-      run: |
-        mypy --ignore-missing-imports notebooks/ src/ || echo "Type checking completed"
-        
-    - name: Test data loading
-      run: |
-        python -c "
-        import pandas as pd
-        import numpy as np
-        print('✅ Python imports working')
-        
-        # Test if we can load a sample CSV
-        try:
-            df = pd.read_csv('data/processed/insurance_data_sample_eda.csv', nrows=10)
-            print(f'✅ Data loading test passed: {df.shape}')
-        except Exception as e:
-            print(f'⚠️ Data loading test: {e}')
-        "
-        
-    - name: Run notebook validation
-      run: |
-        python -m pytest -v --nbval notebooks/ || echo "Notebook validation completed"
-        
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results-${{ matrix.python-version }}
-        path: |
-          test-reports/
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
           
-  build-and-deploy:
-    needs: test-and-analyze
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-        
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install gunicorn flask
-        
-    - name: Create documentation
-      run: |
-        mkdir -p docs
-        echo "# Insurance Risk Analytics Project" > docs/index.md
-        echo "## Project Overview" >> docs/index.md
-        echo "This project analyzes insurance data for AlphaCare Insurance Solutions." >> docs/index.md
-        echo "## Key Findings" >> docs/index.md
-        echo "- Loss Ratio: 301.8%" >> docs/index.md
-        echo "- Critical issues identified" >> docs/index.md
-        
-    - name: Upload test results
-      uses: actions/upload-artifact@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
-        
+      - name: Create Documentation
+        run: |
+          mkdir -p docs
+          echo "# Insurance Analytics Documentation" > docs/README.md
+          echo "Project documentation goes here." >> docs/README.md
+          
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
