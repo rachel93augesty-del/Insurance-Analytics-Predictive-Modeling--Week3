@@ -102,8 +102,9 @@ jobs:
         echo "- Loss Ratio: 301.8%" >> docs/index.md
         echo "- Critical issues identified" >> docs/index.md
         
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
+        
