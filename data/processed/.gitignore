@@ -1,2 +1,4 @@
 /insurance_data_processed.parquet
 /data_sample.csv
+/hypothesis_testing_data.parquet
+/raw_loaded_data.parquet
