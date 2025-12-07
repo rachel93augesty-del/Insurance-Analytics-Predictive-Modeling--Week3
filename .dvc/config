@@ -1,0 +1,6 @@
+[core]
+    remote = localstorage
+['remote "localstorage"']
+    url = D:\Personal\KAIM-10 Academy\Week 3\Project Work\insurance analytics-predictive modeling\dvc_storage
+Changes not staged for commit:
+        modified:   .dvc/config
